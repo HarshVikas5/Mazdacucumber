@@ -28,19 +28,16 @@ public class mazda_filter {
 
 	public static void clickVehicles(WebDriver driver) throws InterruptedException {
 		try {
-//	  	    		WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(25));
-//	  	    		WebElement ele= wait.until(ExpectedConditions.elementToBeClickable(By.id("evidon-accept-button")));
 
-			boolean cookiepresent = driver.findElement(By.id("_evidon-accept-button")).isDisplayed();
+			boolean cookiepresent = driver.findElement(mazda_filterOR.COOKIE_LOCATOR).isDisplayed();
 			if (cookiepresent == true) {
-
 				driver.findElement(By.id("_evidon-accept-button")).click();
 			} else {
 				System.out.println("Popup is not present ");
 			}
 
 			Actions a = new Actions(driver);
-			a.moveToElement(driver.findElement(By.className("mdp-navigation-global__menu-link-1"))).click().build()
+			a.moveToElement(driver.findElement(mazda_filterOR.VEHICLES_LOCATOR)).click().build()
 					.perform();
 			Thread.sleep(2000);
 		} catch (NoSuchElementException e) {
@@ -51,8 +48,6 @@ public class mazda_filter {
 
 	public static void clickSportsCarsMenu(WebDriver driver) {
 		try {
-//	    		JavascriptExecutor js = (JavascriptExecutor) driver;
-//				js.executeScript("window.scrollBy(0,250)", "");
 			Actions a = new Actions(driver);
 			a.moveToElement(driver.findElement(mazda_filterOR.SPORTS_CAR_LOCATOR)).click().build().perform();
 		} catch (NoSuchElementException e) {
@@ -63,9 +58,7 @@ public class mazda_filter {
 
 	public static void carResult(WebDriver driver) {
 		try {
-			boolean cname = driver
-					.findElement(By.xpath("//h4[@class='vehicle-nav__name'][normalize-space()='Mazda MX-5 Miata RF']"))
-					.isDisplayed();
+			boolean cname = driver.findElement(mazda_filterOR.SPORTS_CAR_LOCATOR_FRAME).isDisplayed();
 			if (cname == true) {
 
 				System.out.println("Results are correct ");
