@@ -19,6 +19,12 @@ public mazda_search()
 	    mazda_filter.MazdaHomePage(driver);
 
 	}
+	
+	
+	@When("I accept the cookies")
+	public void i_accept_the_cookies() throws InterruptedException {
+		mazda_filter.cookiePopup(driver);
+	}
 
 	@When("I click the VEHICLES")
 	public void i_click_the_vehicles() throws InterruptedException {

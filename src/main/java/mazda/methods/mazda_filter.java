@@ -26,7 +26,8 @@ public class mazda_filter {
 		logger.info("URL is loaded successfully ");
 	}
 
-	public static void clickVehicles(WebDriver driver) throws InterruptedException {
+	
+	public static void cookiePopup(WebDriver driver) throws InterruptedException {
 		try {
 
 			boolean cookiepresent = driver.findElement(mazda_filterOR.COOKIE_LOCATOR).isDisplayed();
@@ -35,7 +36,16 @@ public class mazda_filter {
 			} else {
 				System.out.println("Popup is not present ");
 			}
-
+		} catch (NoSuchElementException e) {
+			logger.info("Not able to locate cookies Popup ", e);
+		}
+		logger.info("Cookies Popup Located");
+	}
+	
+	
+	
+	public static void clickVehicles(WebDriver driver) throws InterruptedException {
+		try {
 			Actions a = new Actions(driver);
 			a.moveToElement(driver.findElement(mazda_filterOR.VEHICLES_LOCATOR)).click().build()
 					.perform();

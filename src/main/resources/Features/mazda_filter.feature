@@ -6,7 +6,8 @@ Feature: Mazda Website Filteration
 @UITEST
   Scenario: Filteration of Sports Cars
     Given I am on the Mazda website homepage
-    When I click the VEHICLES
+    When I accept the cookies
+    And I click the VEHICLES
     And I click the Sports Cars
     Then I should see results related to Sports Cars
   
