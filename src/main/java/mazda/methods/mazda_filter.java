@@ -36,7 +36,7 @@ public class mazda_filter {
 
 				driver.findElement(By.id("_evidon-accept-button")).click();
 			} else {
-				System.out.println("Popup is not there ");
+				System.out.println("Popup is not present ");
 			}
 
 			Actions a = new Actions(driver);
